@@ -4,9 +4,9 @@
               <h2 style="margin-left:5px;"><strong>Create New Post</strong></h2>
               <div class="form-floating">
                 <textarea name="text" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 300px" required></textarea>
-                <label for="floatingTextarea2">Write your post</label>
+                <label for="floatingTextarea2">Write your experience</label>
               </div>
-              <label for="group">Group</label>
+              <label for="group">Community</label>
               <select name="postedIn" class="form-control" id="group">
                 <% group.joinedGroups.forEach(function(eachGroup){ %>
                     <option value="<%=eachGroup._id%>"><i class="fa-solid fa-user-group"></i><%= eachGroup.name%></option>

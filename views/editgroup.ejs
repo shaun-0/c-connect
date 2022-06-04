@@ -26,11 +26,11 @@
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Group
+                  Community
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="/mygroups">My Groups</a></li>
-                  <li><a class="dropdown-item" href="/newgroup">New Group</a></li>
+                  <li><a class="dropdown-item" href="/mygroups">My Communities</a></li>
+                  <li><a class="dropdown-item" href="/newgroup">New Community</a></li>
                 </ul>
               </li>
               
@@ -52,12 +52,12 @@
               </div>
               <div class="form-floating">
                 <textarea name="members" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 300px" data-bs-toggle="tooltip" title="Enter all members username in new line.(Username can be seen on top-right corner of page)"></textarea>
-                <label for="floatingTextarea2">Add new Members username</label>
+                <label for="floatingTextarea2">Add new Colleagues username</label>
               </div>
               
-              <button type="submit" class="btn btn-primary" style="background-color:#0E185F;border:none">Update Group</button>
+              <button type="submit" class="btn btn-primary" style="background-color:#0E185F;border:none">Update Community</button>
               <hr>
-              <h2>All Members</h2>
+              <h2>All Colleagues</h2>
               <ul class="list-group" style="max-width:460px; margin-bottom: 15px;">
                 <% group.members.forEach(function(eachmember){ 
                   if(eachmember.username == user.username) {%>

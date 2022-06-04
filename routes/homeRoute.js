@@ -97,6 +97,28 @@ router.post('/editPost/:id',checkAuthenticated,async(req,res)=>{
         res.redirect('/')
     }
 })
+
+router.post('/deletePost/:id',checkAuthenticated,async(req,res)=>{
+    let foundPost = await Post.findById(req.params.id);
+    if(!foundPost || foundPost.owner.toString() != req.user._id.toString()){
+        console.log('not found or not owner')
+        res.redirect('/')
+    }else{
+        await Post.deleteOne({_id:req.params.id});
+        await User.updateOne({_id:req.user._id},{
+            $pull:{
+                posts:req.params.id
+            }
+        })
+        await Group.updateOne({_id:foundPost.postedIn},{
+            $pull:{
+                posts:{post:req.params.id}
+            }
+        })
+        console.log('deleted')
+        res.redirect('/')
+    }
+})
 router.get('/editGroup/:id',checkAuthenticated,async (req,res)=>{
     let found = false;
     for(const grp of  req.user.ownedGroups){

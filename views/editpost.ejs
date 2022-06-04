@@ -26,11 +26,11 @@
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Group
+                  Community
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="/mygroups">My Groups</a></li>
-                  <li><a class="dropdown-item" href="/newgroup">New Group</a></li>
+                  <li><a class="dropdown-item" href="/mygroups">My Communitues</a></li>
+                  <li><a class="dropdown-item" href="/newgroup">New Community</a></li>
                 </ul>
               </li>
               
@@ -48,15 +48,19 @@
               <h2 style="margin-left:5px;"><strong>Edit Post</strong></h2>
               <div class="form-floating">
                 <textarea name="text" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 300px" required><%=post.text%></textarea>
-                <label for="floatingTextarea2">Write your post</label>
+                <label for="floatingTextarea2">Write your experience</label>
               </div>
-              <label for="group">Group</label>
+              <label for="group">Community</label>
               <select name="postedIn" class="form-control" id="group" disabled>
                     <option value="<%=post.postedIn._id.toString()%>"><i class="fa-solid fa-user-group"></i><%= post.postedIn.name%></option>
               </select>
               <br>
-              <button type="submit" class="btn btn-primary" style="background-color:#0E185F;border:none">Create Post</button>
+              <button type="submit" class="btn btn-primary" style="background-color:#0E185F;border:none">Update</button>
+             
         </form>
+        <form action="/deletePost/<%=post._id%>" method="POST">
+            <button type="submit" class="btn btn-primary" style="background-color:#0E185F;border:none;margin-left:5px;"><i class="fa-solid fa-trash-can"></i>    Delete Post</button>
+          </form>
     </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
