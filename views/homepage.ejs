@@ -1,0 +1,51 @@
+<%- include ("./partials/header") %>
+      <div class="container">
+        <div class="container con1">
+            <h1 style="margin-top:1em;margin-left:10px;" class="col">All Posts</h1>
+            <div class="games-card">
+              <% posts.forEach(function(eachpost){ %>
+                <div class="card card-css post-card" style="width: 80%;">
+               
+                  <div class="card-body">
+                    <div >
+                      <h5 style="float:left" class="card-title postby">
+                        <img class='icon' src="./avatar/<%= eachpost.post.ownerPic%>" style="display: inline;"></img>
+                        <%= eachpost.post.ownerName %> 
+                        || 
+                        <%= eachpost.groupName %> 
+                      </h5>
+                        
+                    </div>
+                    
+                    <%
+                      var monthNames = [
+                            "January", "February", "March",
+                            "April", "May", "June", "July",
+                            "August", "September", "October",
+                            "November", "December"
+                        ];
+                      var d = eachpost.post.createdAt.getDate();
+                      var m = monthNames[eachpost.post.createdAt.getMonth()];
+                      var y = eachpost.post.createdAt.getFullYear();
+                      var h = eachpost.post.createdAt.getHours();
+                      var min = eachpost.post.createdAt.getMinutes();
+                    %>
+                    
+                    <p class="datePosted">
+                         on <%= d + " "+m + " "+y+" at "+h+":"+min%> 
+                    </p>
+                    <p id="para-css" class="card-text">
+                      <%= eachpost.post.text %>
+                    </p>
+                    
+                  </div>
+                </div>
+              <% }); %>
+        
+                
+            </div>
+          </div>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

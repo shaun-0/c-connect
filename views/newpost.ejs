@@ -1,0 +1,22 @@
+<%- include ("./partials/header") %>
+    <div class="container  form-style">
+        <form action="/newPost" method="POST">
+              <h2 style="margin-left:5px;"><strong>Create New Post</strong></h2>
+              <div class="form-floating">
+                <textarea name="text" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 300px" required></textarea>
+                <label for="floatingTextarea2">Write your post</label>
+              </div>
+              <label for="group">Group</label>
+              <select name="postedIn" class="form-control" id="group">
+                <% group.joinedGroups.forEach(function(eachGroup){ %>
+                    <option value="<%=eachGroup._id%>"><%= eachGroup.name%></option>
+                <% }); %>
+              </select>
+              <br>
+              <button type="submit" class="btn btn-primary" style="background-color:#0E185F;border:none">Create Post</button>
+        </form>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

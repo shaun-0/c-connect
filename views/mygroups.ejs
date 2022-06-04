@@ -1,0 +1,30 @@
+<%- include ("./partials/header") %>
+    <div class="container  form-style">
+        <h2>Owned Communities</h2>
+        <% groups.ownedGroups.forEach(function(eachgroup){ %>
+            <div class="card card-css post-card" style="width: 80%;margin:20px 20px;">
+                <div class="card-body">
+                    <div >
+                        <h5 style="float:left" class="card-title postby">
+                        <%= eachgroup.name %> 
+                        </h5>
+                    </div>
+                    <a href="/editGroup/<%=eachgroup._id%>" id="editbtn">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
+                    
+                </div>
+            </div>
+        <% }); %>
+        <h2>All Joined Communities</h2>
+        <ul class="list-group" style="width: 80%;margin:20px 20px;">
+            <% groups.joinedGroups.forEach(function(eachgroup){ %>
+                    <li class="list-group-item"><%= eachgroup.name %></li>
+            <% }); %>
+        </ul>
+        
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
