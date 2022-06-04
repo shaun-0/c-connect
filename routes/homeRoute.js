@@ -73,6 +73,30 @@ router.get('/myGroups',checkAuthenticated,async(req,res)=>{
     // console.log(groups)
     res.render('mygroups',{groups:groups,user:req.user})
 })
+router.get('/editPost/:id',checkAuthenticated,async(req,res)=>{
+    let foundPost = await Post.findById(req.params.id).populate({path:'postedIn',select:['name']});
+    if(!foundPost || foundPost.owner.toString() != req.user._id.toString()){
+        res.redirect('/')
+    }else{
+        let userGroup = await User.findById(req.user._id.toString(),{
+                joinedGroup:1
+        }).populate({path:'joinedGroups',select:['name','_id']})
+        res.render('editpost',{post:foundPost,user:req.user,group:userGroup})
+    }
+})
+router.post('/editPost/:id',checkAuthenticated,async(req,res)=>{
+    let foundPost = await Post.findById(req.params.id);
+    if(!foundPost || foundPost.owner.toString() != req.user._id.toString()){
+        res.redirect('/')
+    }else{
+        let updatedPost = await Post.findByIdAndUpdate(req.params.id,{
+            $set:{
+                text:req.body.text
+            }
+        })
+        res.redirect('/')
+    }
+})
 router.get('/editGroup/:id',checkAuthenticated,async (req,res)=>{
     let found = false;
     for(const grp of  req.user.ownedGroups){

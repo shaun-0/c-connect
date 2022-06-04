@@ -8,13 +8,25 @@
                
                   <div class="card-body">
                     <div >
-                      <h5 style="float:left" class="card-title postby">
-                        <img class='icon' src="./avatar/<%= eachpost.post.ownerPic%>" style="display: inline;"></img>
-                        <%= eachpost.post.ownerName %> 
-                        || 
-                        <%= eachpost.groupName %> 
-                      </h5>
-                        
+                      <%
+                      if(eachpost.post.owner.toString() == user._id.toString()){ %>
+                        <h5 class="card-title postby" style="float:left;color:rgb(47, 164, 255)">
+                          <img class='icon' src="./avatar/<%= eachpost.post.ownerPic%>" style="display: inline;"></img>
+                          <%= eachpost.post.ownerName %> 
+                          || 
+                          <%= eachpost.groupName %> 
+                          <a href="/editPost/<%=eachpost.post._id%>" id="editbtn">
+                            <i class="fa-solid fa-pen-to-square edit-icon"></i>
+                        </a>
+                        </h5>
+                      <% }else{ %>
+                        <h5 style="float:left" class="card-title postby">
+                          <img class='icon' src="./avatar/<%= eachpost.post.ownerPic%>" style="display: inline;"></img>
+                          <%= eachpost.post.ownerName %> 
+                          || 
+                          <%= eachpost.groupName %> 
+                        </h5>
+                      <% }%>
                     </div>
                     
                     <%
