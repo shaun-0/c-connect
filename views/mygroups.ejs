@@ -1,26 +1,37 @@
 <%- include ("./partials/header") %>
     <div class="container  form-style">
         <h2>Owned Communities</h2>
-        <% groups.ownedGroups.forEach(function(eachgroup){ %>
-            <div class="card card-css post-card" style="width: 80%;margin:20px 20px;">
-                <div class="card-body">
-                    <div >
-                        <h5 style="float:left" class="card-title postby">
-                        <%= eachgroup.name %> 
-                        </h5>
+        <% 
+        if(groups.ownedGroups.length == 0){%>
+            You dont own any communities yet, <a href="/newgroup">Create One?</a>
+        <%}else{
+            groups.ownedGroups.forEach(function(eachgroup){ %>
+                <div class="card card-css post-card" style="width: 80%;margin:20px 20px;">
+                    <div class="card-body">
+                        <div >
+                            <h5 style="float:left" class="card-title postby">
+                                <i class="fa-solid fa-user-group grp-icon"></i>  <%= eachgroup.name %> 
+                            </h5>
+                        </div>
+                        <a href="/editGroup/<%=eachgroup._id%>" id="editbtn">
+                            <i class="fa-solid fa-pen-to-square edit-icon"></i>
+                        </a>
+                        
                     </div>
-                    <a href="/editGroup/<%=eachgroup._id%>" id="editbtn">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    </a>
-                    
                 </div>
-            </div>
-        <% }); %>
+            <% });
+        } %>
+        <hr>
         <h2>All Joined Communities</h2>
         <ul class="list-group" style="width: 80%;margin:20px 20px;">
-            <% groups.joinedGroups.forEach(function(eachgroup){ %>
-                    <li class="list-group-item"><%= eachgroup.name %></li>
-            <% }); %>
+            <% 
+            if(groups.ownedGroups.length == 0){%>
+                You have not joined any communities yet!
+            <%}else{
+                groups.joinedGroups.forEach(function(eachgroup){ %>
+                        <li class="list-group-item"><i class="fa-solid fa-user-group grp-icon"></i>  <%= eachgroup.name %></li>
+                <% });
+            }%>
         </ul>
         
     </div>

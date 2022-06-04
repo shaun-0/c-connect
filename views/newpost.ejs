@@ -9,7 +9,7 @@
               <label for="group">Group</label>
               <select name="postedIn" class="form-control" id="group">
                 <% group.joinedGroups.forEach(function(eachGroup){ %>
-                    <option value="<%=eachGroup._id%>"><%= eachGroup.name%></option>
+                    <option value="<%=eachGroup._id%>"><i class="fa-solid fa-user-group"></i><%= eachGroup.name%></option>
                 <% }); %>
               </select>
               <br>

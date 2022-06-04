@@ -45,13 +45,13 @@
       </nav>
     <div class="container  form-style">
         <form action="/editGroup/<%=group._id%>" method="POST">
-              <h2 style="margin-left:5px;"><strong>Edit Group</strong></h2>
+              <h2 style="margin-left:5px;"><strong>Edit Community</strong></h2>
               <div class="mb-3">
-                <label for="groupName" class="form-label">Group Name</label>
+                <label for="groupName" class="form-label">Community Name</label>
                 <input name="name" type="text" class="form-control" id="groupName" required value="<%= group.name%>">
               </div>
               <div class="form-floating">
-                <textarea name="members" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 300px" data-bs-toggle="tooltip" title="Enter all members username in new line.(Username can be seen on top-right corner of page)"></textarea>
+                <textarea name="members" class="form-con  trol" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 300px" data-bs-toggle="tooltip" title="Enter all members username in new line.(Username can be seen on top-right corner of page)"></textarea>
                 <label for="floatingTextarea2">Add new Members username</label>
               </div>
               
