@@ -59,8 +59,13 @@
               <hr>
               <h2>All Members</h2>
               <ul class="list-group" style="max-width:460px; margin-bottom: 15px;">
-                <% group.members.forEach(function(eachmember){ %>
-                        <li class="list-group-item"><%= eachmember.username %></li>
+                <% group.members.forEach(function(eachmember){ 
+                  if(eachmember.username == user.username) {%>
+                    
+                    <li class="list-group-item" style="color:rgb(47, 164, 255)"><img class='icon' src='./../avatar/<%= eachmember.pic %>' style="display: inline;"></img> <%= eachmember.username %></li>
+                  <%} else { %> 
+                    <li class="list-group-item"><img class='icon' src='./../avatar/<%= eachmember.pic %>' style="display: inline;"></img> <%= eachmember.username %></li>
+                  <%} %>
                 <% }); %>
             </ul>
         </form>

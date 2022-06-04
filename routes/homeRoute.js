@@ -87,7 +87,7 @@ router.get('/editGroup/:id',checkAuthenticated,async (req,res)=>{
             ownerName:0,
             owner:0,
             posts:0
-        }).populate({path:'members',select:['username']});
+        }).populate({path:'members',select:['username','pic']});
         if(foundgroup){
             // console.log(foundgroup)
             res.render('editgroup',{group:foundgroup,user:req.user})
