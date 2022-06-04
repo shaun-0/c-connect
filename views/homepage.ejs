@@ -24,15 +24,16 @@
                             "August", "September", "October",
                             "November", "December"
                         ];
-                      var d = eachpost.post.createdAt.getDate();
-                      var m = monthNames[eachpost.post.createdAt.getMonth()];
-                      var y = eachpost.post.createdAt.getFullYear();
-                      var h = eachpost.post.createdAt.getHours();
-                      var min = eachpost.post.createdAt.getMinutes();
+                      var currDate = new Date(eachpost.post.createdAt.getTime() + 330*60000);
+                      var d = currDate.getDate();
+                      var m = monthNames[currDate.getMonth()];
+                      var y = currDate.getFullYear();
+                      var h = currDate.getHours();
+                      var min = currDate.getMinutes();
                     %>
                     
                     <p class="datePosted">
-                         on <%= d + " "+m + " "+y+" at "+h+":"+min + " UTC"%> 
+                         on <%= d + " "+m + " "+y+" at "+h+":"+min %> 
                     </p>
                     <p id="para-css" class="card-text">
                       <%= eachpost.post.text %>
